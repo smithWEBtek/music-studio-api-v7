@@ -1,5 +1,5 @@
 # config valid for current version and patch releases of Capistrano
-lock "~> 3.11.2"
+lock "~>  3.7.2 "
 
 set :application, "music-studio-api"
 set :repo_url, "git@github.com:smithwebtek/music-studio-api.git"
