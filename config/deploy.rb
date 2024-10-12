@@ -5,7 +5,6 @@ set :application, "music-studio-api"
 set :repo_url, "git@github.com:smithwebtek/music-studio-api.git"
 set :branch, "main"
 set :deploy_to, "/home/deploy/music-studio-api"
-append :linked_files, "config/master.key"
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
@@ -24,10 +23,10 @@ append :linked_files, "config/master.key"
 # set :pty, true
 
 # Default value for :linked_files is []
-# append :linked_files, "config/database.yml"
+append :linked_files, "config/master.key", "config/database.yml"
 
 # Default value for linked_dirs is []
-# append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
+append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
@@ -36,7 +35,7 @@ append :linked_files, "config/master.key"
 # set :local_user, -> { `git config user.name`.chomp }
 
 # Default value for keep_releases is 5
-# set :keep_releases, 5
+set :keep_releases, 5
 
 # Uncomment the following to require manually verifying the host key before first deploy.
 # set :ssh_options, verify_host_key: :secure
