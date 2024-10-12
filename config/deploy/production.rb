@@ -8,9 +8,6 @@
 # server "db.example.com", user: "deploy", roles: %w{db}
 server "music-studio-api.smithwebtek.com", user: "deploy", roles: %w{app db web}
 
-config.require_master_key = true
-
-
 # role-based syntax
 # ==================
 
