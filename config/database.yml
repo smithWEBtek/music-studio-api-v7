@@ -3,7 +3,7 @@ default: &default
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: deploy
-  password: pointer
+  password: <%= a password %>
 development:
   <<: *default
   database: music_studio_api_development
