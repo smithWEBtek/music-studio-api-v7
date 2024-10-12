@@ -13,10 +13,6 @@ gem "puma", ">= 5.0"
 
 gem 'active_model_serializers', '~> 0.10.0'
 
-gem 'capistrano',                 '3.11.2'
-gem 'capistrano-rails',           '1.4.0'
-gem 'capistrano-rbenv',           '2.1.4 '
-gem 'capistrano-passenger',       '0.2.0'
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
@@ -37,6 +33,13 @@ gem "bootsnap", require: false
 gem "rack-cors"
 
 group :development, :test do
+  gem 'capistrano',                 '3.11.2'
+  gem 'capistrano-rails',           '1.4.0'
+  gem 'capistrano-rbenv',           '2.1.4 '
+  gem 'capistrano-passenger',       '0.2.0'
+
+  gem "sshkit", "1.10.0"
+  
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mswin mswin64 mingw x64_mingw ], require: "debug/prelude"
 
