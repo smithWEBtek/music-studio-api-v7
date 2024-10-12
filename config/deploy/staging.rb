@@ -5,9 +5,9 @@
 
 # server "example.com", user: "deploy", roles: %w{app db web}, my_property: :my_value
 # server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
-server "music-studio-api.smithwebtek.com", user: "deploy", roles: %w{app db web}
+# server "music-studio-api.smithwebtek.com", user: "deploy", roles: %w{app db web}
 
-config.require_master_key = true
+# config.require_master_key = true
 
 
 # role-based syntax

@@ -23,7 +23,7 @@ set :deploy_to, "/home/deploy/music-studio-api"
 # set :pty, true
 
 # Default value for :linked_files is []
-append :linked_files, "config/master.key", "config/database.yml"
+append :linked_files, "config/database.yml", "config/master.key", "config/database.yml"
 
 # Default value for linked_dirs is []
 append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
@@ -39,3 +39,24 @@ set :keep_releases, 5
 
 # Uncomment the following to require manually verifying the host key before first deploy.
 # set :ssh_options, verify_host_key: :secure
+
+namespace :deploy do
+    desc 'Remove old releases with sudo'
+    task :cleanup_with_sudo do
+      on roles(:all) do
+        within releases_path do
+          # Fetch the list of releases
+          releases = capture(:ls, '-xtr', releases_path).split
+          if releases.count >= fetch(:keep_releases)
+            # Remove the oldest releases, keeping the most recent ones
+            directories_to_remove = (releases - releases.last(fetch(:keep_releases)))
+            if directories_to_remove.any?
+              execute :sudo, :rm, '-rf', directories_to_remove.map { |release| File.join(releases_path, release) }.join(' ')
+            end
+          end
+        end
+      end
+    end
+  end
+  
+  after 'deploy:finishing', 'deploy:cleanup_with_sudo'
