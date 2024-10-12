@@ -13,6 +13,12 @@ gem "puma", ">= 5.0"
 
 gem 'active_model_serializers', '~> 0.10.0'
 
+gem 'capistrano-bundler'
+gem 'capistrano',                 '3.11.2'
+gem 'capistrano-rails',           '1.4.0'
+gem 'capistrano-passenger',       '0.2.0'
+gem 'capistrano-rvm'
+
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 
@@ -42,5 +48,6 @@ group :development, :test do
   gem "rubocop-rails-omakase", require: false
 
   gem 'pry-rails' 
-  gem 'pry-doc' 
+  gem 'pry-doc'
+  gem 'listen', '>= 3.0.5', '< 3.2'
 end
