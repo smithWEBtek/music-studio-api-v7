@@ -59,4 +59,19 @@ namespace :deploy do
     end
   end
   
-  after 'deploy:finishing', 'deploy:cleanup_with_sudo'
+  namespace :deploy do
+    task :check_linked_files do
+      on roles(:app) do
+        fetch(:linked_files).each do |file|
+          unless test("[ -f #{shared_path.join(file)} ]")
+            error I18n.t(:linked_file_does_not_exist, file: file)
+            exit 1
+          end
+        end
+      end
+    end
+  end  
+  
+  
+  
+after 'deploy:finishing', 'deploy:cleanup_with_sudo'
