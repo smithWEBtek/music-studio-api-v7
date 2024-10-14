@@ -51,5 +51,5 @@ group :development, :test do
 
   gem 'pry-rails' 
   gem 'pry-doc'
-  gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'listen', '>= 3.0.5', '< 3.10'
 end
