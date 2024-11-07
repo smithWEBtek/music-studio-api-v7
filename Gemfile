@@ -34,7 +34,7 @@ gem "rack-cors"
 gem 'capistrano-rails'
 gem 'capistrano-bundler'
 gem 'capistrano-passenger'
-gem 'capistrano', '~> 3.7.2'
+gem 'capistrano', '~> 3.19.2'
 gem 'capistrano-rvm'
 gem "sshkit", "1.10.0"
 
